@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<form method="POST" action="get.php" name="first" onsubmit="return check()"><br>
+<link rel="stylesheet" href="style.css"/>
+<meta name="viewpoint" content ="initial-scale=2.0.width=device-width"/>
+<div>
+<table>
+<tr>
+<td id=1 class=none onclick ="Mywin('1')"></td>
+<td id=2 class=none3 onclick ="Mywin('2')"></td>
+<td id=3 class=none onclick ="Mywin('3')"></td>
+</tr>
+
+<tr>
+<td id=4 class=none1 onclick ="Mywin('4')"></td>
+<td id=5 class=none3 onclick ="Mywin('5')"></td>
+<td id=6 class=none2 onclick ="Mywin('6')"></td>
+</tr>
+<tr>
+<td id=7 class=none onclick ="Mywin('7')"></td>
+<td id=8 class=none4 onclick ="Mywin('8')"></td>
+<td id=9 class=none onclick ="Mywin('9')"></td>
+</tr>
+</table>
+</div>
+<div><a href=go.html ><input name="button" type="button" class="r" value="Новая игра"/></a></div>
+</form>
+<script type = "text/javascript">
+function Mywin(p)
+{
+//ход человека
+if ((document.getElementById(p).innerHTML == "")&&(document.getElementById(1).style.color!="red")&&(document.getElementById(5).style.color!="red")&&(document.getElementById(9).style.color!="red"))
+{document.getElementById(p).innerHTML = "X";
+
+// выйграл X
+//горизонталь
+for (i=1;i<10;i=i+3)
+{
+if ((document.getElementById(i).innerHTML == document.getElementById(i+1).innerHTML)&&(document.getElementById(i+1).innerHTML == document.getElementById(i+2).innerHTML)&&(document.getElementById(i).innerHTML=="X"))
+{
+document.getElementById(i).style.color="red";
+document.getElementById(i+1).style.color="red";
+document.getElementById(i+2).style.color="red";
+}
+}
+//вертикаль
+for (i=1;i<4;i++)
+{
+if ((document.getElementById(i).innerHTML == document.getElementById(i+3).innerHTML)&&(document.getElementById(i+3).innerHTML == document.getElementById(i+6).innerHTML)&&(document.getElementById(i).innerHTML=="X"))
+{
+document.getElementById(i).style.color="red";
+document.getElementById(i+3).style.color="red";
+document.getElementById(i+6).style.color="red";
+}
+}
+//диагональ левая
+if ((document.getElementById(1).innerHTML == document.getElementById(5).innerHTML)&&(document.getElementById(5).innerHTML == document.getElementById(9).innerHTML)&&(document.getElementById(1).innerHTML=="X"))
+{
+document.getElementById(1).style.color="red";
+document.getElementById(5).style.color="red";
+document.getElementById(9).style.color="red";
+}
+//диагональ правая
+if ((document.getElementById(3).innerHTML == document.getElementById(5).innerHTML)&&(document.getElementById(5).innerHTML == document.getElementById(7).innerHTML)&&(document.getElementById(3).innerHTML=="X"))
+{
+document.getElementById(3).style.color="red";
+document.getElementById(5).style.color="red";
+document.getElementById(7).style.color="red";
+}
+if (document.getElementById(p).style.color!="red")
+{
+//ход компьютера
+
+if (document.getElementById(5).innerHTML =="")
+{document.getElementById(5).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="")&&(document.getElementById(5).innerHTML != "0"))
+{document.getElementById(1).innerHTML = "0";}
+//атака
+else if ((document.getElementById(3).innerHTML =="0")&&(document.getElementById(5).innerHTML =="0")&&(document.getElementById(7).innerHTML !="X"))
+{document.getElementById(7).innerHTML = "0";}
+else if ((document.getElementById(7).innerHTML =="0")&&(document.getElementById(5).innerHTML =="0")&&(document.getElementById(3).innerHTML !="X"))
+{document.getElementById(3).innerHTML = "0";}
+else if ((document.getElementById(4).innerHTML =="0")&&(document.getElementById(5).innerHTML =="0")&&(document.getElementById(6).innerHTML !="X"))
+{document.getElementById(6).innerHTML = "0";}
+else if ((document.getElementById(6).innerHTML =="0")&&(document.getElementById(5).innerHTML =="0")&&(document.getElementById(4).innerHTML !="X"))
+{document.getElementById(4).innerHTML = "0";}
+else if ((document.getElementById(6).innerHTML =="0")&&(document.getElementById(3).innerHTML =="0")&&(document.getElementById(9).innerHTML !="X"))
+{document.getElementById(9).innerHTML = "0";}
+else if ((document.getElementById(6).innerHTML =="0")&&(document.getElementById(9).innerHTML =="0")&&(document.getElementById(3).innerHTML !="X"))
+{document.getElementById(3).innerHTML = "0";}
+else if ((document.getElementById(8).innerHTML =="0")&&(document.getElementById(9).innerHTML =="0")&&(document.getElementById(7).innerHTML !="X"))
+{document.getElementById(7).innerHTML = "0";}
+else if ((document.getElementById(7).innerHTML =="0")&&(document.getElementById(9).innerHTML =="0")&&(document.getElementById(8).innerHTML !="X"))
+{document.getElementById(8).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="0")&&(document.getElementById(4).innerHTML =="0")&&(document.getElementById(7).innerHTML !="X"))
+{document.getElementById(7).innerHTML = "0";}
+else if ((document.getElementById(5).innerHTML =="0")&&(document.getElementById(2).innerHTML =="0")&&(document.getElementById(8).innerHTML !="X"))
+{document.getElementById(8).innerHTML = "0";}
+else if ((document.getElementById(5).innerHTML =="0")&&(document.getElementById(8).innerHTML =="0")&&(document.getElementById(2).innerHTML !="X"))
+{document.getElementById(2).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="0")&&(document.getElementById(2).innerHTML =="0")&&(document.getElementById(3).innerHTML !="X"))
+{document.getElementById(3).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="0")&&(document.getElementById(5).innerHTML =="0")&&(document.getElementById(9).innerHTML !="X"))
+{document.getElementById(9).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="0")&&(document.getElementById(7).innerHTML =="0")&&(document.getElementById(4).innerHTML !="X"))
+{document.getElementById(4).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="0")&&(document.getElementById(3).innerHTML =="0")&&(document.getElementById(2).innerHTML !="X"))
+{document.getElementById(2).innerHTML = "0";}
+else if ((document.getElementById(3).innerHTML =="0")&&(document.getElementById(9).innerHTML =="0")&&(document.getElementById(6).innerHTML !="X"))
+{document.getElementById(6).innerHTML = "0";}
+else if ((document.getElementById(7).innerHTML =="0")&&(document.getElementById(8).innerHTML =="0")&&(document.getElementById(9).innerHTML !="X"))
+{document.getElementById(9).innerHTML = "0";}
+else if ((document.getElementById(5).innerHTML =="0")&&(document.getElementById(9).innerHTML =="0")&&(document.getElementById(1).innerHTML !="X"))
+{document.getElementById(1).innerHTML = "0";}
+else if ((document.getElementById(2).innerHTML =="0")&&(document.getElementById(3).innerHTML =="0")&&(document.getElementById(1).innerHTML !="X"))
+{document.getElementById(1).innerHTML = "0";}
+else if ((document.getElementById(4).innerHTML =="0")&&(document.getElementById(7).innerHTML =="0")&&(document.getElementById(1).innerHTML !="X"))
+{document.getElementById(1).innerHTML = "0";}
+///защита
+else if ((document.getElementById(3).innerHTML =="X")&&(document.getElementById(5).innerHTML =="X")&&(document.getElementById(7).innerHTML !="0"))
+{document.getElementById(7).innerHTML = "0";}
+else if ((document.getElementById(7).innerHTML =="X")&&(document.getElementById(5).innerHTML =="X")&&(document.getElementById(3).innerHTML !="0"))
+{document.getElementById(3).innerHTML = "0";}
+else if ((document.getElementById(4).innerHTML =="X")&&(document.getElementById(5).innerHTML =="X")&&(document.getElementById(6).innerHTML !="0"))
+{document.getElementById(6).innerHTML = "0";}
+else if ((document.getElementById(6).innerHTML =="X")&&(document.getElementById(5).innerHTML =="X")&&(document.getElementById(4).innerHTML !="0"))
+{document.getElementById(4).innerHTML = "0";}
+else if ((document.getElementById(6).innerHTML =="X")&&(document.getElementById(3).innerHTML =="X")&&(document.getElementById(9).innerHTML !="0"))
+{document.getElementById(9).innerHTML = "0";}
+else if ((document.getElementById(6).innerHTML =="X")&&(document.getElementById(9).innerHTML =="X")&&(document.getElementById(3).innerHTML !="0"))
+{document.getElementById(3).innerHTML = "0";}
+else if ((document.getElementById(8).innerHTML =="X")&&(document.getElementById(9).innerHTML =="X")&&(document.getElementById(7).innerHTML !="0"))
+{document.getElementById(7).innerHTML = "0";}
+else if ((document.getElementById(7).innerHTML =="X")&&(document.getElementById(9).innerHTML =="X")&&(document.getElementById(8).innerHTML !="0"))
+{document.getElementById(8).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="X")&&(document.getElementById(4).innerHTML =="X")&&(document.getElementById(7).innerHTML !="0"))
+{document.getElementById(7).innerHTML = "0";}
+else if ((document.getElementById(5).innerHTML =="X")&&(document.getElementById(2).innerHTML =="X")&&(document.getElementById(8).innerHTML !="0"))
+{document.getElementById(8).innerHTML = "0";}
+else if ((document.getElementById(5).innerHTML =="X")&&(document.getElementById(8).innerHTML =="X")&&(document.getElementById(2).innerHTML !="0"))
+{document.getElementById(2).innerHTML = "0";}
+else if ((document.getElementById(3).innerHTML =="X")&&(document.getElementById(9).innerHTML =="X")&&(document.getElementById(6).innerHTML !="0"))
+{document.getElementById(6).innerHTML = "0";}
+else if ((document.getElementById(7).innerHTML =="X")&&(document.getElementById(8).innerHTML =="X")&&(document.getElementById(9).innerHTML !="0"))
+{document.getElementById(9).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="X")&&(document.getElementById(2).innerHTML =="X")&&(document.getElementById(3).innerHTML !="0"))
+{document.getElementById(3).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="X")&&(document.getElementById(7).innerHTML =="X")&&(document.getElementById(4).innerHTML !="0"))
+{document.getElementById(4).innerHTML = "0";}
+else if ((document.getElementById(1).innerHTML =="X")&&(document.getElementById(3).innerHTML =="X")&&(document.getElementById(2).innerHTML !="0"))
+{document.getElementById(2).innerHTML = "0";}
+else if ((document.getElementById(5).innerHTML =="X")&&(document.getElementById(9).innerHTML =="X")&&(document.getElementById(1).innerHTML !="0"))
+{document.getElementById(1).innerHTML = "0";}
+else if ((document.getElementById(2).innerHTML =="X")&&(document.getElementById(3).innerHTML =="X")&&(document.getElementById(1).innerHTML !="0"))
+{document.getElementById(1).innerHTML = "0";}
+else if ((document.getElementById(4).innerHTML =="X")&&(document.getElementById(7).innerHTML =="X")&&(document.getElementById(1).innerHTML !="0"))
+{document.getElementById(1).innerHTML = "0";}
+//доп шаг
+else if (document.getElementById(3).innerHTML =="")
+{document.getElementById(3).innerHTML = "0";}
+else if (document.getElementById(9).innerHTML =="")
+{document.getElementById(9).innerHTML = "0";}
+else if (document.getElementById(7).innerHTML =="")
+{document.getElementById(7).innerHTML = "0";}
+else if (document.getElementById(4).innerHTML =="")
+{document.getElementById(4).innerHTML = "0";}
+else if (document.getElementById(6).innerHTML =="")
+{document.getElementById(6).innerHTML = "0";}
+else if (document.getElementById(2).innerHTML =="")
+{document.getElementById(2).innerHTML = "0";}
+else if (document.getElementById(8).innerHTML =="")
+{document.getElementById(8).innerHTML = "0";}
+
+//выйграл 0
+for (i=1;i<10;i=i+3)
+{
+if ((document.getElementById(i).innerHTML == document.getElementById(i+1).innerHTML)&&(document.getElementById(i+1).innerHTML == document.getElementById(i+2).innerHTML)&&(document.getElementById(i).innerHTML=="0"))
+{
+document.getElementById(i).style.color="red";
+document.getElementById(i+1).style.color="red";
+document.getElementById(i+2).style.color="red"; 
+}
+}
+//вертикаль
+for (i=1;i<4;i++)
+{
+if ((document.getElementById(i).innerHTML == document.getElementById(i+3).innerHTML)&&(document.getElementById(i+3).innerHTML == document.getElementById(i+6).innerHTML)&&(document.getElementById(i).innerHTML=="0"))
+{
+document.getElementById(i).style.color="red";
+document.getElementById(i+3).style.color="red";
+document.getElementById(i+6).style.color="red";
+}
+}
+//диагональ левая
+if ((document.getElementById(1).innerHTML == document.getElementById(5).innerHTML)&&(document.getElementById(5).innerHTML == document.getElementById(9).innerHTML)&&(document.getElementById(1).innerHTML=="0"))
+{
+document.getElementById(1).style.color="red";
+document.getElementById(5).style.color="red";
+document.getElementById(9).style.color="red";
+}
+//диагональ правая
+if ((document.getElementById(3).innerHTML == document.getElementById(5).innerHTML)&&(document.getElementById(5).innerHTML == document.getElementById(7).innerHTML)&&(document.getElementById(3).innerHTML=="0"))
+{
+document.getElementById(3).style.color="red";
+document.getElementById(5).style.color="red";
+document.getElementById(7).style.color="red";
+}
+}
+}
+
+
+}
+//результат
+function f2() { 
+for (i=1;i<10;i++)
+{
+if ((document.getElementById(i).style.color=="red")&&(document.getElementById(i).innerHTML =="X"))
+{alert("Вы выиграли!");
+break;}
+else if ((document.getElementById(i).style.color=="red")&&(document.getElementById(i).innerHTML=="0"))
+{alert("Вы проиграли!");
+break;}
+}
+}
+</script>
+</body>
+</head>
+</html>
+
+

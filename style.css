@@ -1,0 +1,18 @@
+﻿table {
+text-align: center;
+font-family: "Malgun Gothic";
+font-size: 120px;
+border-collapse: collapse;
+float:left;}
+td {border: 1px solid black;
+width:150px;
+height:150px;
+}
+.none {border:none;}
+.none1{border-left:none;}
+.none2{border-right:none;}
+.none3{border-top:none;}
+.none4{border-bottom:none;}
+.r{float:left;
+height:35px;
+ font:25px Times New Roman;}
